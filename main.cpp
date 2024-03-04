@@ -1,16 +1,16 @@
 #include <iostream>
 #include <string>
-#include <limits>         //included for using std::numericlimits (line 94)
+#include <limits>             //included for using std::numericlimits (line 94)
 
 struct Book
 {
-    std::string title{}; //I like using brace init. to avoid unwanted conversions
-    std::string author{}; //and to keep the init. style constant
+    std::string title{};      //I like using brace init. to avoid unwanted conversions
+    std::string author{};     //and to keep the init. style constant
     std::string id{};
     int daysBorrowed{};
 };
 
-int penalty(const Book &book); //pass by reference as to avoid expensive copies of struct Book
+int penalty(const Book &book);     //pass by reference as to avoid expensive copies of struct Book
 
 int main()
 {
