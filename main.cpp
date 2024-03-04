@@ -14,19 +14,19 @@ int penalty(const Book &book); //pass by reference as to avoid expensive copies 
 
 int main()
 {
-    const int nrBooksBorrowed{100};    //const so as not to be changed accidentally later
+    const int nrBooksBorrowed{100};         //const so as not to be changed accidentally later
     Book sheetBorrowed[nrBooksBorrowed];    //used C-style arrays, so I gave an arbitrary value to the array
 
     for (int i{0}; i < nrBooksBorrowed; i++)   //for loop for init. the array
     {
         std::cout << "Enter the book's title: ";
-        std::getline(std::cin, sheetBorrowed[i].title);          //std::getline for capturing the white spaces too
+        std::getline(std::cin, sheetBorrowed[i].title);                  //std::getline for capturing the white spaces too
         std::cout << "Enter the book's author: ";
-        std::getline(std::cin, sheetBorrowed[i].author);          //each index (meaning each element of the array of structs)
-        std::cout << "Enter the book's ID: ";           //gets data from the user
+        std::getline(std::cin, sheetBorrowed[i].author);                 //each index (meaning each element of the array of structs)
+        std::cout << "Enter the book's ID: ";                            //gets data from the user
         std::getline(std::cin, sheetBorrowed[i].id);
         std::cout << "Enter the number of days the book has been borrowed: ";
-        std::string str_daysBorrowed{};                        //variable to get the number of days borrowed from the user
+        std::string str_daysBorrowed{};                                  //variable to get the number of days borrowed from the user
         std::getline(std::cin, str_daysBorrowed);
         sheetBorrowed[i].daysBorrowed = std::stoi(str_daysBorrowed);     //std:stoi for conversion from string to int
 
@@ -40,10 +40,10 @@ int main()
 
     std::cout << '\n';  //aesthetic role
 
-    for (int i{0}; i < nrBooksBorrowed; i++)      //for loop for showing books the user entered
+    for (int i{0}; i < nrBooksBorrowed; i++)          //for loop for showing books the user entered
     {
-        if (!sheetBorrowed[i].title.empty())        //function to stop the loop at the last book entered
-        {                                      //(the array has memory allocated for 100 elements
+        if (!sheetBorrowed[i].title.empty())          //function to stop the loop at the last book entered
+        {                                             //(the array has memory allocated for 100 elements
             std::cout << sheetBorrowed[i].title << " - " << sheetBorrowed[i].author << ", "
             << sheetBorrowed[i].id << ", " << sheetBorrowed[i].daysBorrowed << " days\n";
         }
@@ -68,7 +68,7 @@ int main()
             std::cout << "The user's sheet of borrowed books includes the following: \n";
             for (int ii {0}; ii < nrBooksBorrowed; ii++)    //shows the user's books
             {
-                if (!sheetBorrowed[ii].title.empty())    //same as on line 45
+                if (!sheetBorrowed[ii].title.empty())       //same as on line 45
                 {
                     std::cout << sheetBorrowed[ii].title << " - " << sheetBorrowed[ii].author << ", "
                     << sheetBorrowed[ii].id << ", " << sheetBorrowed[ii].daysBorrowed << " days\n";
@@ -96,15 +96,15 @@ int main()
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 std::getline(std::cin, deleteID);
 
-                for (int j = 0; j < nrBooksBorrowed; j++)       //for loop to traverse through all the user's books
+                for (int j = 0; j < nrBooksBorrowed; j++)      //for loop to traverse through all the user's books
                 {
                     if (deleteID == sheetBorrowed[j].id)
                     {
-                    sheetBorrowed[j] = {"0", "0", "0", 0};   //because C-style arrays are not dynamically allocated and don't have functions like pop.back()
+                    sheetBorrowed[j] = {"0", "0", "0", 0};     //because C-style arrays are not dynamically allocated and don't have functions like pop.back()
                     std::cout << "The book with the ID " << deleteID << " has been returned.\n";
-                    deleteID = {};  //reset so as to be used later
+                    deleteID = {};                             //reset so as to be used later
                     break;
-                    } else if (j == nrBooksBorrowed - 1)    //if the books ID wasn't found, print error message
+                    } else if (j == nrBooksBorrowed - 1)       //if the books ID wasn't found, print error message
                       {
                         std::cout << "Please enter a valid ID.\n";
                         deleteID = {};
@@ -133,5 +133,5 @@ int penalty(const Book &book)
         int x{book.daysBorrowed - 14};
         value = value + x;
     }
-    return value * 5;     //5 Euro penalty for each day of being late
+    return value * 5;            //5 Euro penalty for each day of being late
 }
