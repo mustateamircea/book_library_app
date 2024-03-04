@@ -14,8 +14,8 @@ int penalty(const Book &book); //pass by reference as to avoid expensive copies 
 
 int main()
 {
-    const int nrBooksBorrowed{100};         //const so as not to be changed accidentally later
-    Book sheetBorrowed[nrBooksBorrowed];    //used C-style arrays, so I gave an arbitrary value to the array
+    const int nrBooksBorrowed{100};            //const so as not to be changed accidentally later
+    Book sheetBorrowed[nrBooksBorrowed];       //used C-style arrays, so I gave an arbitrary value to the array
 
     for (int i{0}; i < nrBooksBorrowed; i++)   //for loop for init. the array
     {
