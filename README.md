@@ -7,4 +7,6 @@ The program holds a user sheet/file that contains the books the users have borro
 They can calculate their penalty (5 Euros / Day) for failure to return the book (applicable only if the user failed to return the book after the 14th day), they can return books by ID and see their
 sheet/file after the operation is done, and finally can exit the program.
 
+Regarding the application logic, I have commented the source file, explaining as I go the rationale for different code choises I have made.
+
 As I learn more, I plan to add new functionalities and also add a Graphical Interface for this program.
